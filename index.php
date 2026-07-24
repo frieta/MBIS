@@ -37,7 +37,50 @@ function parseFilename($filename) {
   return $result;
 }
 
-function findThumbnail($studentDir, $file) {
+function normalizeName($value) {
+  $value = strtolower($value);
+  $value = preg_replace('/[^a-z0-9]+/', '', $value);
+  return $value;
+}
+
+function findThumbnail($studentPicDir, $file) {
+  $parts = parseFilename($file);
+  $candidates = [];
+
+  if (!empty($parts['lastname']) || !empty($parts['firstname'])) {
+    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname']);
+    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['grade']);
+    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['grade'] . $parts['section']);
+    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['section']);
+  }
+
+  $candidates[] = normalizeName(pathinfo($file, PATHINFO_FILENAME));
+  $candidates[] = normalizeName(str_replace(['_', ' '], '', pathinfo($file, PATHINFO_FILENAME)));
+
+  if (!is_dir($studentPicDir)) {
+    return 'student_pics/placeholder.svg';
+  }
+
+  $extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+  $images = [];
+  foreach (scandir($studentPicDir) as $entry) {
+    if ($entry === '.' || $entry === '..') continue;
+    $path = $studentPicDir . '/' . $entry;
+    if (!is_file($path)) continue;
+    $ext = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
+    if (!in_array($ext, $extensions, true)) continue;
+    $images[] = $entry;
+  }
+
+  foreach ($images as $image) {
+    $imageBase = normalizeName(pathinfo($image, PATHINFO_FILENAME));
+    foreach ($candidates as $candidate) {
+      if ($candidate !== '' && ($imageBase === $candidate || strpos($imageBase, $candidate) !== false || strpos($candidate, $imageBase) !== false)) {
+        return 'student_pics/' . rawurlencode($image);
+      }
+    }
+  }
+
   return 'student_pics/placeholder.svg';
 }
 ?>
@@ -75,7 +118,7 @@ function findThumbnail($studentDir, $file) {
       </div>
 
       <div class="overview-grid">
-        <article class="overview-card overview-card-wide">
+        <article class="overview-card overview-card-wide" style="font-size: 1.4rem; line-height: 1.5;">
           <h3>What the challenge was about</h3>
           <p>
             On <strong>July 23, 2026</strong>, Grade 10 students of <strong>Malainen Bago Integrated School</strong>
@@ -88,7 +131,7 @@ function findThumbnail($studentDir, $file) {
           </p>
         </article>
 
-        <article class="overview-card">
+        <article class="overview-card" style="font-size: 1.1rem; line-height: 1.5;">
           <h3>Competition focus</h3>
           <ul>
             <li>Open only to <strong>Grade 10 students</strong></li>
@@ -131,7 +174,7 @@ function findThumbnail($studentDir, $file) {
             <?php
               $url = 'student_works/' . rawurlencode($f);
               $parts = parseFilename($f);
-              $thumb = findThumbnail($studentDir, $f);
+              $thumb = findThumbnail(__DIR__ . '/student_pics', $f);
             ?>
             <a class="card" href="<?= $url ?>" target="_blank" rel="noopener noreferrer">
               <div class="card-thumb">
