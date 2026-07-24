@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="100%" height="100%" fill="#eef7ee"/>
+  <g fill="#1f6f3a" font-family="Segoe UI, Arial" font-size="18" text-anchor="middle">
+    <circle cx="200" cy="110" r="50" fill="#dff2df" stroke="#cfe7cf"/>
+    <text x="200" y="200">Student Photo</text>
+  </g>
+</svg>

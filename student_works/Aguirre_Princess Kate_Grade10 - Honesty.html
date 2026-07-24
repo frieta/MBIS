@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Nutrition Month | Nourish to Flourish</title>
+ 
+  <!-- Custom Web Fonts (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700\\\&family=Plus+Jakarta+Sans:wght@400;600;700\\\&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables for Palette Management */
+    :root {
+    --bg-color: #f4f8f3;
+    --card-bg: #ffffff;
+    --primary-green: #2e7d32;
+    --accent-orange: #e65100;
+    --text-main: #2c3e50;
+    --text-muted: #546e7a;
+    --border-color: #e0e6ed;
+    }
+
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    padding-bottom: 50px;
+    }
+
+    /* Headings */
+    h1, h2, h3 {
+    font-family: 'Fredoka', cursive;
+    color: var(--primary-green);
+    }
+
+    /* Container */
+    .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+
+    /* Navigation Bar */
+    header {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    }
+
+    .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    }
+
+    .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    }
+
+    /* Hero Section with Custom Background Gradient */
+    .hero {
+   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    padding: 60px 20px;
+    border-radius: 16px;
+    margin: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #1b5e20;
+    }
+
+    .hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    }
+
+    /* Section Cards with Subtle Hover Effect */
+    .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Grid Layout for Food Groups */
+    .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    }
+
+    .food-card {
+    background: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    }
+
+    .food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    }
+
+    .food-card-body {
+   padding: 15px;
+    }
+
+    .food-card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    }
+
+    /* Styled Table */
+    .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    }
+
+    th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+    background-color: #f1f8e9;
+    color: var(--primary-green);
+    font-weight: 700;
+    }
+
+    tr:hover {
+    background-color: #f9fbf9;
+    }
+
+    /* Links & Buttons */
+    .btn {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+    background-color: #d84315;
+    }
+
+    .resources-list {
+    list-style-type: none;
+    margin-top: 15px;
+    }
+
+    .resources-list li {
+    margin-bottom: 12px;
+    }
+
+    .resources-list a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+    }
+
+    .resources-list a:hover {
+    border-bottom-color: var(--primary-green);
+    }
+
+    /* Footer */
+    footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+    <div class="logo">🍏 NutriMonth</div>
+    <a href="#resources" class="btn">Explore Resources</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+    <h1>Celebrate Nutrition Month</h1>
+    <p>Building healthier habits today for a stronger, more resilient tomorrow.</p>
+    </section>
+
+    <!-- Essential Food Groups Section -->
+    <section class="card">
+    <h2>Essential Nutrients & Food Groups</h2>
+    <p style="margin-bottom: 15px;">A balanced diet requires a blend of macro and micronutrients. Here is a breakdown of everyday foods to power your body:</p>
+
+    <div class="food-grid">
+    <!-- Card 1 -->
+    <div class="food-card">
+   <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format\\\&fit=crop\\\&w=600\\\&q=80" alt="Fresh Salad and Vegetables">
+    <div class="food-card-body">
+    <h3>Fresh Produce</h3>
+    <p>Rich in vitamins, minerals, and dietary fiber essential for digestion and immunity.</p>
+   </div>
+   </div>
+   <!-- Card 2 -->
+   <div class="food-card">
+  <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format\\\&fit=crop\\\&w=600\\\&q=80" alt="Whole Grains Bowl">
+   <div class="food-card-body">
+   <h3>Whole Grains</h3>
+    <p>Provides complex carbohydrates for sustained energy throughout the day.</p>
+    </div>
+   </div>
+   <!-- Card 3 -->
+   <div class="food-card">
+   <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format\\\&fit=crop\\\&w=600\\\&q=80" alt="Healthy Proteins">
+   <div class="food-card-body">
+    <h3>Lean Proteins</h3>
+    <p>Crucial for muscle repair, growth, and overall bodily functions.</p>
+    </div>
+    </div>
+   </div>
+    </section>
+
+    <!-- Daily Dietary Guidelines Table -->
+    <section class="card">
+   <h2>Recommended Daily Plate Ratio</h2>
+   <p>Follow this general breakdown to structure your daily meals effectively:</p>
+   <div class="table-container">
+   <table>
+   <thead>
+   <tr>
+   <th>Plate Category</th>
+   <th>Recommended Proportion</th>
+   <th>Primary Benefits</th>
+   <th>Example Foods</th>
+    </tr>
+  </thead>
+   <tbody>
+   <tr>
+  <td><strong>Vegetables & Fruits</strong></td>
+  <td>50% (Half Plate)</td>
+  <td>High in Fiber, Antioxidants, & Micronutrients</td>
+  <td>Spinach, Squash, Apples, Berries</td>
+  </tr>
+  <tr>
+  <td><strong>Whole Grains</strong></td>
+  <td>25% (Quarter Plate)</td>
+  <td>Sustained Energy & Blood Sugar Control</td>
+   <td>Brown Rice, Oats, Quinoa, Whole Wheat</td>
+   </tr>
+  <tr>
+   <td><strong>Protein Sources</strong></td>
+    <td>25% (Quarter Plate)</td>
+   <td>Muscle Repair & Immune Support</td>
+   <td>Fish, Poultry, Tofu, Legumes</td>
+   </tr>
+    </tbody>
+    </table>
+   </div>
+    </section>
+
+    <!-- Credible Resources Section -->
+    <section class="card" id="resources">
+    <h2>Credible Health & Nutrition Resources</h2>
+    <p>For verified guidelines, scientific studies, and dietary planning, consult these recognized health authorities:</p
+   <ul class="resources-list">
+        <li>
+          🌐 <a href="https://www.who.int/health-topics/nutrition" target="\\\_blank" rel="noopener noreferrer">World Health Organization (WHO) – Nutrition Overview</a>
+          <br><small style="color: var(--text-muted)">Global guidelines, factsheets, and nutrition strategy updates.</small>
+        </li>
+        <li>
+          🌐 <a href="https://www.nutrition.gov" target="\\\_blank" rel="noopener noreferrer">Nutrition.gov – USDA Health & Nutrition Portal</a>
+          <br><small style="color: var(--text-muted)">Evidence-based dietary advice and interactive meal planning tools.</small>
+        </li>
+        <li>
+          🌐 <a href="https://www.cdc.gov/nutrition/index.html" target="\\\_blank" rel="noopener noreferrer">Centers for Disease Control and Prevention (CDC) – Healthy Weight & Nutrition</a>
+          <br><small style="color: var(--text-muted)">Public health strategies for preventing chronic conditions through diet.</small>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 National Nutrition Month Awareness Initiative. Built for Educational Purpose ; Created by Aguirre Kate </p>
+  </footer>
+
+</body>
+</html>
