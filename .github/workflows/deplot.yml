@@ -25,17 +25,20 @@ jobs:
       - name: Compile PHP and prepare static files
         run: |
           # Create a directory to hold the final static site
-          mkdir static_site
+          mkdir -p static_site
           
           # Execute the PHP script and save the generated HTML
           php index.php > static_site/index.html
           
-          # Copy all the required asset directories to the static site folder
-          # The '|| true' ensures the pipeline doesn't fail if a folder doesn't exist yet
+          # Copy the static assets and profile pages into the published site
           cp -r css static_site/ 2>/dev/null || true
           cp -r assets static_site/ 2>/dev/null || true
           cp -r student_works static_site/ 2>/dev/null || true
           cp -r student_pics static_site/ 2>/dev/null || true
+          cp -r profiles static_site/ 2>/dev/null || true
+
+          # Keep GitHub Pages from treating the site as a Jekyll project
+          touch static_site/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

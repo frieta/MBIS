@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ms. Tizza Rama Muñoz</title>
+    <style>
+        :root {
+            --primary-green: #0d4a22;
+            --secondary-green: #2e8b57;
+            --light-green: #eafaf1;
+            --accent: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7f4;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border-top: 8px solid var(--primary-green);
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(to right, #ffffff, var(--light-green), #ffffff);
+            border-bottom: 1px solid #d1e8da;
+        }
+
+        .header h2 {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .header .sub-subtitle {
+            color: var(--secondary-green);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        /* Left Column: Profile Card */
+        .profile-col {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+        }
+
+        .profile-img-container {
+            background-color: #f8f9fa;
+            border: 5px solid var(--primary-green);
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .profile-title {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 20px;
+        }
+
+        .profile-title h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-title p {
+            font-size: 1rem;
+            font-style: italic;
+            color: #d1e8da;
+        }
+
+        .credentials {
+            background-color: var(--light-green);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .credential-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .credential-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cred-icon {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            background: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cred-text h4 {
+            color: var(--primary-green);
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .cred-text p {
+            font-size: 0.85rem;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Right Column: About Section */
+        .about-col {
+            flex: 2;
+            min-width: 400px;
+        }
+
+        .section-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            text-align: justify;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #a3d9b8;
+        }
+
+        .about-text p:last-child {
+            border-bottom: none;
+        }
+
+        /* Event Challenge Banner */
+        .event-banner {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .event-banner h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .event-banner h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: #f1c40f;
+        }
+
+        .event-banner p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Table Section */
+        .criteria-section {
+            padding: 30px;
+            background-color: white;
+            border-top: 1px dashed #ccc;
+        }
+
+        .criteria-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .criterion {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            border: 2px solid var(--light-green);
+            transition: transform 0.3s ease;
+        }
+        
+        .criterion:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--secondary-green);
+        }
+
+        .crit-icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .criterion h4 {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer .motto {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #e8f5e9;
+            margin-bottom: 10px;
+        }
+
+        .footer .organizer {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .about-col {
+                min-width: 100%;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <!-- Adding FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h2>2026 National</h2>
+            <h1>NUTRITION MONTH CELEBRATION</h1>
+            <div class="subtitle">Nutrisyon at Kalikasan, Ating Pangalagaan!</div>
+            <div class="sub-subtitle">Strengthening the Link Between Nutrition and Environmental Protection, with a Focus on Climate Action</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Left Column: Profile Card -->
+            <div class="profile-col">
+                <div class="profile-img-container">
+                    <!-- Referencing Tizza.jpg as requested -->
+                    <img src="Tizza.jpg" alt="Ms. Tizza Rama Muñoz" onerror="this.src='https://via.placeholder.com/350x350/eafaf1/2e8b57?text=Tizza.jpg';">
+                </div>
+                <div class="profile-title">
+                    <h2>Ms. Tizza Rama Muñoz, BSN</h2>
+                    <p>Nutrition and Health Judge</p>
+                </div>
+
+                <div class="credentials">
+                    <div class="credential-item">
+                        <div class="cred-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="cred-text">
+                            <h4>Bachelor of Science in Nursing</h4>
+                            <p><em>Graduated 2012</em></p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div class="cred-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                        <div class="cred-text">
+                            <p>Healthcare professional with a strong foundation in health care, patient education, and the importance of proper nutrition in promoting overall wellness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: About Section -->
+            <div class="about-col">
+                <div class="section-header">
+                    <i class="fa-solid fa-user-nurse"></i> ABOUT THE JUDGE
+                </div>
+                <div class="about-text">
+                    <p>Ms. Tizza Rama Muñoz is a Bachelor of Science in Nursing graduate with professional experience in the healthcare industry. Her background has equipped her with a strong foundation in health care, patient education, and the importance of proper nutrition in promoting overall wellness.</p>
+                    <p>She has developed excellent skills in attention to detail, critical thinking, professional communication, and accurate documentation through her experience in the health sector. Her commitment to precision and evidence-based practice reflects the qualities of a dedicated and compassionate health professional.</p>
+                    <p>Her healthcare background enables her to assess whether the nutrition messages presented are clear, appropriate, and beneficial in encouraging healthy lifestyle choices among learners.</p>
+                    <p>She is honored to serve as a judge and support learners in promoting health, nutrition, and environmental stewardship through creativity and technology.</p>
+                </div>
+
+                <!-- Event Banner inside Right Column -->
+                <div class="event-banner">
+                    <h3>Official Judge For Grade 10</h3>
+                    <h2>CODE FOR NUTRITION 2026:</h2>
+                    <p>HEALTHY PLATE WEBPAGE CHALLENGE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What she brings Section -->
+        <div class="criteria-section">
+            <h3 style="text-align: center; color: var(--text-dark); margin-bottom: 10px; font-weight: 600;">SHE BRINGS TO THE JUDGING TABLE:</h3>
+            <div class="criteria-grid">
+                <div class="criterion">
+                    <div class="crit-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h4>Attention<br>to Detail</h4>
+                </div>
+                <div class="criterion">
+                    <div class="crit-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h4>Analytical<br>Thinking</h4>
+                </div>
+                <div class="criterion">
+                    <div class="crit-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Health &<br>Wellness<br>Perspective</h4>
+                </div>
+                <div class="criterion">
+                    <div class="crit-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h4>Professional<br>Communication</h4>
+                </div>
+                <div class="criterion">
+                    <div class="crit-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Commitment<br>to Excellence</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="motto">Healthy Learners. Healthy Planet. Healthy Future. <i class="fa-solid fa-heart" style="font-size: 0.9em; margin-left: 5px;"></i></div>
+            <div class="organizer">Organized by the <strong>JUNIOR HIGH SCHOOL TLE DEPARTMENT</strong><br>MALAINEN BAGO INTEGRATED SCHOOL</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

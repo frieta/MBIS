@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/people.php';
+
 $studentDir = __DIR__ . '/student_works';
 $files = [];
 if (is_dir($studentDir)) {
@@ -83,6 +85,9 @@ function findThumbnail($studentPicDir, $file) {
 
   return 'student_pics/placeholder.svg';
 }
+
+$profileCards = $peopleProfiles;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -165,7 +170,8 @@ function findThumbnail($studentPicDir, $file) {
     </section>
 
     <section>
-      <h2>Student Works</h2>
+      <h2>Participating Students & their Works</h2>
+      <p class="hint">This section showcases the student submissions for the Code for Nutrition 2026 Challenge. <br><i>Click on any card to view the student's work.</i></p>
       <?php if (empty($files)): ?>
         <div class="empty">No student submissions found in <code>student_works/</code>.</div>
       <?php else: ?>
@@ -200,6 +206,25 @@ function findThumbnail($studentPicDir, $file) {
           <?php endforeach; ?>
         </div>
       <?php endif; ?>
+    </section>
+
+    <section>
+      <h2>Facilitators &amp; Judges</h2>
+      <p class="hint">This section is ready for their profiles, photos, and bios. You can replace the placeholder content whenever you are ready.</p>
+      <div class="gallery">
+        <?php foreach ($profileCards as $person): ?>
+          <a class="card" href="<?= htmlspecialchars($person['link']) ?>" rel="noopener noreferrer">
+            <div class="card-thumb">
+              <img src="<?= htmlspecialchars($person['photo']) ?>" alt="<?= htmlspecialchars($person['name']) ?>">
+            </div>
+            <div class="card-body">
+              <h3><?= htmlspecialchars($person['name']) ?></h3>
+              <p class="grade"><?= htmlspecialchars($person['role']) ?></p>
+              <p class="filename"><?= htmlspecialchars($person['bio'] ?? $person['details'] ?? '') ?></p>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
     </section>
   </main>
 
