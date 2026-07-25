@@ -1,0 +1,44 @@
+name: Compile PHP to HTML and Deploy
+
+on:
+  push:
+    branches:
+      - main # Change this to 'master' if your default branch is master
+
+# Grant the action permission to write to the repository (required to push to gh-pages branch)
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2' # You can change this to match the PHP version you use locally
+
+      - name: Compile PHP and prepare static files
+        run: |
+          # Create a directory to hold the final static site
+          mkdir static_site
+          
+          # Execute the PHP script and save the generated HTML
+          php index.php > static_site/index.html
+          
+          # Copy all the required asset directories to the static site folder
+          # The '|| true' ensures the pipeline doesn't fail if a folder doesn't exist yet
+          cp -r css static_site/ 2>/dev/null || true
+          cp -r assets static_site/ 2>/dev/null || true
+          cp -r student_works static_site/ 2>/dev/null || true
+          cp -r student_pics static_site/ 2>/dev/null || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./static_site
