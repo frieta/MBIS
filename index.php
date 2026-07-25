@@ -171,7 +171,7 @@ $profileCards = $peopleProfiles;
 
     <section>
       <h2>Participating Students & their Works</h2>
-      <p class="hint">This section showcases the student submissions for the Code for Nutrition 2026 Challenge. <br><i>Click on any card to view the student's work.</i></p>
+      <p class="hint">Students submissions for the Code for Nutrition 2026 Challenge. <br><i>Click on any card to view the student's work.</i></p>
       <?php if (empty($files)): ?>
         <div class="empty">No student submissions found in <code>student_works/</code>.</div>
       <?php else: ?>
@@ -210,7 +210,7 @@ $profileCards = $peopleProfiles;
 
     <section>
       <h2>Facilitators &amp; Judges</h2>
-      <p class="hint">This section is ready for their profiles, photos, and bios. You can replace the placeholder content whenever you are ready.</p>
+     <p class="hint">Facilitators and judges for the Code for Nutrition 2026 Challenge. <br><i>Click on any card to view the person's profile.</i></p>
       <div class="gallery">
         <?php foreach ($profileCards as $person): ?>
           <a class="card" href="<?= htmlspecialchars($person['link']) ?>" rel="noopener noreferrer">
