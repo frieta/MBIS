@@ -164,7 +164,7 @@ $profileCards = $peopleProfiles;
           <strong>Allowed tools:</strong> Notepad, Notepad++, Atom, Visual Studio Code, Sublime Text, and other HTML editors.
         </div>
         <div>
-          <strong>Submission note:</strong> Students were expected to develop a webpage on the spot from scratch and Save it in the computer that they will use the facilitators and judges will then check their.
+          <strong>Submission note:</strong> Students were expected to develop a webpage on the spot from scratch and save it in the computer that they will use, then submit it for review. The facilitators and judges will then check their work.
         </div>
       </div>
     </section>
