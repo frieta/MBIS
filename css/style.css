@@ -89,8 +89,9 @@ h2{color:var(--dark-green);margin:18px 0}
   transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 32px rgba(16,77,37,0.16),0 0 0 1px rgba(47,138,77,0.12),0 0 22px rgba(47,138,77,0.12);border-color:var(--border-strong)}
-.card-thumb{width:180px;flex:0 0 180px;height:210px;align-self:stretch;border-radius:12px;background:linear-gradient(135deg,#eef8ee,#dff3df);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(31,111,58,0.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.45)}
+.card-thumb{width:180px;flex:0 0 180px;height:210px;align-self:stretch;border-radius:12px;background:linear-gradient(135deg,#eef8ee,#dff3df);display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid var(--dark-green);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.45);transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease}
 .card-thumb img{width:100%;height:100%;object-fit:cover;display:block;object-position:center;transition:transform .3s ease}
+.card:hover .card-thumb{border-color:var(--accent);box-shadow:0 0 0 4px rgba(47,138,77,0.12), inset 0 0 0 1px rgba(255,255,255,0.45);transform:translateY(-1px)}
 .card:hover .card-thumb img{transform:scale(1.05)}
 .card-body{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px}
 .card-body h3{margin:0;font-size:19px;line-height:1.2;overflow-wrap:anywhere;word-break:break-word}
@@ -140,7 +141,7 @@ code{background:#f0f6f0;padding:2px 6px;border-radius:4px;font-size:90%}
   .overview-footer{grid-template-columns:1fr;gap:10px}
   .gallery{grid-template-columns:1fr;gap:16px;margin:18px 0}
   .card{flex-direction:column;align-items:stretch;gap:12px;padding:14px;min-height:auto}
-  .card-thumb{width:min(100%,240px);height:auto;aspect-ratio:3 / 4;flex:0 0 auto;align-self:center}
+  .card-thumb{width:min(100%,240px);height:auto;aspect-ratio:3 / 4;flex:0 0 auto;align-self:center;border-width:2px;border-color:var(--dark-green)}
   .card-body{justify-content:flex-start;gap:6px}
   .card-body h3{font-size:18px}
   .card-body .grade{font-size:13px}
@@ -152,5 +153,5 @@ code{background:#f0f6f0;padding:2px 6px;border-radius:4px;font-size:90%}
 @media (max-width: 420px) {
   .hero-text h1{font-size:21px}
   .overview-header h2{font-size:20px}
-  .card-thumb{width:min(100%,220px);aspect-ratio:3 / 4}
+  .card-thumb{width:min(100%,220px);aspect-ratio:3 / 4;border-width:2px;border-color:var(--dark-green)}
 }
