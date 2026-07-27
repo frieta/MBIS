@@ -2,7 +2,7 @@
 $peopleProfiles = [
   [
     'slug' => 'honeylynne-soriano',
-    'name' => 'Ms. HONEYLYNNE A. SORIANO, LPT',
+    'name' => 'Ms. HONEYLYNNE A. SORIANO',
     'role' => 'Facilitator / Teacher',
     'details' => 'Dedicated ICT Educator and Company System Developer with more than ten years of experience in website development, systems implementation, workflow automation, and project management.',
     'photo' => 'profiles/Honey.jpg',
@@ -20,7 +20,7 @@ $peopleProfiles = [
   ],
   [
     'slug' => 'tizza-rama-munoz',
-    'name' => 'Ms. Tizza Rama Muñoz, BSN',
+    'name' => 'Ms. Tizza Rama Muñoz',
     'role' => 'Nutrition and Health Judge',
     'details' => 'A dedicated judge with a healthcare background who supports students in promoting health, nutrition, and wellness through creativity and technology.',
     'photo' => 'profiles/Tizza.jpg',
