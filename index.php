@@ -208,7 +208,7 @@ $profileCards = $peopleProfiles;
     <section>
       <h2>Facilitators &amp; Judges</h2>
       <p class="overview-lead">The success of the Code for Nutrition 2026: Healthy Plate Webpage Challenge was made possible through the guidance of dedicated educators and professionals who facilitated the activity and evaluated the students' outputs based on technical excellence and nutrition content.</p>
-      <p class="hint"><i>Click on any card to view the person's profile.</i></p>
+      <br><p class="hint"><i>Click on any card to view the person's profile.</i></p><br>
       <div class="gallery">
         <?php foreach ($profileCards as $person): ?>
           <a class="card" href="<?= htmlspecialchars($person['link']) ?>" rel="noopener noreferrer">
