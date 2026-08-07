@@ -96,13 +96,46 @@ $profileCards = $peopleProfiles;
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Code for Nutrition 2026 — Showcase</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Custom Grid Layout matching image_63173b.png */
+    .custom-overview-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .custom-full-width {
+      grid-column: 1 / -1;
+    }
+    
+    /* Mobile Optimization */
+    @media (max-width: 900px) {
+      .custom-overview-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+      .custom-overview-layout article:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 768px) {
+      .custom-overview-layout {
+        grid-template-columns: 1fr;
+      }
+      .custom-overview-layout article:first-child {
+        grid-column: auto;
+      }
+      .custom-full-width {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-inner">
       <div class="hero-text">
         <h1>Code for Nutrition 2026 Showcase</h1>
-        <p class="lead">Welcome to the official Code for Nutrition 2026 Showcase! This website features the creative outputs of the Grade 10 students of Malainen Bago Integrated School during the Healthy Plate Webpage Challenge held on July 23, 2026. Within a 90-minute competition, participants designed informative webpages using standard HTML to promote healthy eating, proper nutrition, and digital creativity. Explore their inspiring works below.</p>
+        <p class="lead">Welcome to the Code for Nutrition 2026 Showcase! This website features the official student outputs from the Code for Nutrition 2026: Healthy Plate Webpage Challenge, held on July 23, 2026, at the MBIS ICT Laboratory. The competition showcased the HTML webpages developed by the 18 Grade 10 Computer Programming students of Malainen Bago Integrated School. Applying the knowledge and skills they acquired during the first five (5) weeks of their Grade 10 TLE – Computer Programming lessons, students created informative and creative webpages that promote healthy eating, balanced nutrition, and the Healthy Plate concept. Explore their digital projects and discover how beginning web developers used technology to promote healthier lifestyles.</p>
         <p class="meta">Event: Healthy Plate Webpage Challenge — July 23, 2026</p>
       </div>
       <div class="hero-image">
@@ -115,60 +148,69 @@ $profileCards = $peopleProfiles;
     <section class="event-overview" aria-labelledby="overview-title">
       <div class="overview-header">
         <p class="eyebrow">Event Overview</p>
-        <h2 id="overview-title">About the Code for Nutrition 2026 Challenge</h2>
+        <h2 id="overview-title">About the Challenge</h2>
         <p class="overview-lead">
-          Code for Nutrition 2026 is a project-based HTML competition that combines Computer Programming and Nutrition Education. Through website development, learners demonstrate both technical skills and their understanding of healthy eating by creating informative and visually engaging webpages.
+          The Code for Nutrition 2026: Healthy Plate Webpage Challenge served as the first major practical application of the students' learning in Computer Programming. During the first five weeks of instruction, students learned the fundamentals of HTML together with basic CSS formatting, including webpage structure, headings, paragraphs, lists, hyperlinks, images, tables, text formatting, and webpage background colors. To demonstrate these newly acquired skills, students designed and developed an educational webpage that promotes healthy eating and nutrition awareness while applying proper webpage organization, creativity, and coding techniques.
         </p>
       </div>
 
-      <div class="overview-grid">
-        <article class="overview-card overview-card-wide" style="font-size: 1.4rem; line-height: 1.5;">
-          <h3>What the challenge was about</h3>
-          <p>
-            On <strong>July 23, 2026</strong>, 18 Grade 10 students representing the six Grade 10 sections of <strong>Malainen Bago Integrated School</strong> participated in the Healthy Plate Webpage Challenge. Each participant created an original HTML webpage that promotes balanced nutrition, healthy food choices, and the importance of maintaining a healthy lifestyle.
-          </p>
-          <p>
-            Participants completed their webpages within a 90-minute competition period, requiring them to apply their HTML knowledge, creativity, planning, and problem-solving skills while presenting accurate nutrition information.
-          </p>
+      <div class="overview-grid custom-overview-layout">
+        <article class="overview-card" style="font-size: 1.3rem; line-height: 1.5;">
+          <h3>Competition Objectives</h3>
+          <p>The challenge aimed to:</p>
+          <ul>
+            <li>Apply the HTML and basic CSS skills learned during the first five weeks of Grade 10 Computer Programming.</li>
+            <li>Develop informative webpages that promote healthy nutrition and balanced eating habits.</li>
+            <li>Strengthen students' creativity, logical thinking, and webpage design skills.</li>
+            <li>Encourage students to communicate health information through technology.</li>
+            <li>Inspire students to explore additional HTML and CSS techniques beyond the classroom lessons.</li>
+          </ul>
         </article>
 
         <article class="overview-card" style="font-size: 1.1rem; line-height: 1.5;">
-          <h3>Competition focus</h3>
+          <h3>What Students Learned</h3>
+          <p>Before participating in the competition, students successfully completed lessons on:</p>
           <ul>
-            <li>Design one original HTML webpage.</li>
-            <li>Promote healthy eating and nutrition awareness.</li>
-            <li>Demonstrate HTML coding skills and creativity.</li>
-            <li>Present accurate nutrition information.</li>
-            <li>Apply attractive webpage layout and formatting.</li>
+            <li>HTML document structure</li>
+            <li>Headings and paragraphs</li>
+            <li>Text formatting</li>
+            <li>Ordered and unordered lists</li>
+            <li>Hyperlinks</li>
+            <li>Images, Tables, and Forms</li>
+            <li>Basic CSS styling & Background colors</li>
+          </ul>
+          <p style="margin-top: 10px;">These lessons became the foundation for the webpages showcased in this competition.</p>
+        </article>
+
+        <article class="overview-card" style="font-size: 1.1rem; line-height: 1.5;">
+          <h3>Competition Requirements</h3>
+          <p>Each participant created one (1) informative HTML webpage that included:</p>
+          <ul>
+            <li>A webpage title and a main heading</li>
+            <li>Informative paragraphs</li>
+            <li>Healthy Plate image</li>
+            <li>Healthy food recommendations</li>
+            <li>Lists and Tables</li>
+            <li>Appropriate CSS webpage styling</li>
           </ul>
         </article>
 
-        <article class="overview-card">
-          <h3>Required webpage content</h3>
-          <ul>
-            <li>Meaningful webpage title</li>
-            <li>At least one paragraph about healthy nutrition</li>
-            <li>At least one image related to healthy food</li>
-            <li>Ordered or unordered list</li>
-            <li>Table presenting nutrition information</li>
-            <li>Appropriate background color or visual theme</li>
-          </ul>
+        <article class="overview-card custom-full-width" style="font-size: 1.2rem; line-height: 1.5;">
+          <h3>Innovation Through Advanced HTML & CSS</h3>
+          <p>
+            Students were encouraged to go beyond the required competencies by independently exploring additional HTML and CSS techniques. Participants who incorporated advanced webpage features—such as improved layouts, additional HTML elements, enhanced CSS styling, multimedia integration, semantic HTML tags, responsive design concepts, or other creative webpage enhancements—received additional consideration under the Technical Skills and Creativity criteria.
+          </p>
+          <p style="margin-top: 10px;">
+            Students who used only the HTML and CSS concepts covered during the first five weeks were not penalized. The innovation component simply recognized learners who demonstrated initiative by applying techniques beyond the classroom lessons.
+          </p>
         </article>
-      </div>
-
-      <div class="overview-footer">
-        <div>
-          <strong>Allowed tools:</strong> Notepad, Notepad++, Atom, Visual Studio Code, Sublime Text, and other HTML editors.
-        </div>
-        <div>
-          <strong>Submission note:</strong> All webpages featured in this showcase were submitted by the participants as part of the official competition. Visitors may browse each student's work to appreciate their creativity, HTML programming skills, and understanding of nutrition education.
-        </div>
       </div>
     </section>
 
     <section>
-      <h2>Participating Students & Their Works</h2>
-      <p class="hint">Browse the student profiles below and explore their Healthy Plate webpages showcasing creativity, HTML programming skills, and nutrition awareness.</p>
+      <h2>Student Webpage Showcase</h2>
+      <p class="hint">The webpages featured below represent the creativity, technical skills, and hard work of the 18 Grade 10 Computer Programming students who participated in the Code for Nutrition 2026: Healthy Plate Webpage Challenge.<br><br>Each project reflects the students' understanding of HTML and basic CSS while promoting nutrition awareness through educational web design.</p>
+      
       <?php if (empty($files)): ?>
         <div class="empty">No student submissions found in <code>student_works/</code>.</div>
       <?php else: ?>
@@ -206,7 +248,7 @@ $profileCards = $peopleProfiles;
     </section>
 
     <section>
-      <h2>Facilitators &amp; Judges</h2>
+      <h2>Facilitator & Judges</h2>
       <p class="overview-lead">The success of the Code for Nutrition 2026: Healthy Plate Webpage Challenge was made possible through the guidance of dedicated educators and professionals who facilitated the activity and evaluated the students' outputs based on technical excellence and nutrition content.</p>
       <br><p class="hint"><i>Click on any card to view the person's profile.</i></p><br>
       <div class="gallery">
