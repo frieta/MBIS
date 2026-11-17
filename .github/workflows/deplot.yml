@@ -29,11 +29,25 @@ jobs:
           
           # Execute the PHP script and save the generated HTML
           php index.php > static_site/index.html
+
+          # Generate anonymized static student pages for GitHub Pages
+          mkdir -p static_site/student_works
+          i=1
+          while IFS= read -r file; do
+            learner_file=$(printf "Learner%03d.html" "$i")
+            cp "student_works/$file" "static_site/student_works/$learner_file"
+
+            # Rewrite anonymous links in the generated index page
+            search="student-work.php?id=$i"
+            replace="student_works/$learner_file"
+            sed -i "s|$search|$replace|g" static_site/index.html
+
+            i=$((i + 1))
+          done < <(find student_works -maxdepth 1 -type f \( -iname '*.html' -o -iname '*.htm' \) -printf '%f\n' | sort -fV)
           
           # Copy the static assets and profile pages into the published site
           cp -r css static_site/ 2>/dev/null || true
           cp -r assets static_site/ 2>/dev/null || true
-          cp -r student_works static_site/ 2>/dev/null || true
           cp -r student_pics static_site/ 2>/dev/null || true
           cp -r profiles static_site/ 2>/dev/null || true
 
