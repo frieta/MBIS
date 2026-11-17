@@ -14,28 +14,15 @@ if (is_dir($studentDir)) {
   sort($files, SORT_NATURAL | SORT_FLAG_CASE);
 }
 
-function parseFilename($filename) {
-  $name = pathinfo($filename, PATHINFO_FILENAME);
-  $parts = explode('_', $name);
+function parseFilename($filename, $index = 1) {
   $result = [
     'lastname' => '',
     'firstname' => '',
     'grade' => '',
     'section' => '',
-    'displayName' => htmlspecialchars(str_replace('_', ' ', $name))
+    'displayName' => 'Learner' . str_pad((string)$index, 3, '0', STR_PAD_LEFT)
   ];
-  if (count($parts) >= 3) {
-    $result['lastname'] = $parts[0];
-    $result['firstname'] = $parts[1];
-    $sec = $parts[2];
-    if (preg_match('/^(\d+)([A-Za-z\s\-]*)$/', $sec, $m)) {
-      $result['grade'] = $m[1];
-      $result['section'] = trim($m[2]);
-    } else {
-      $result['section'] = $sec;
-    }
-    $result['displayName'] = htmlspecialchars($result['lastname'] . ' ' . $result['firstname']);
-  }
+
   return $result;
 }
 
@@ -46,43 +33,6 @@ function normalizeName($value) {
 }
 
 function findThumbnail($studentPicDir, $file) {
-  $parts = parseFilename($file);
-  $candidates = [];
-
-  if (!empty($parts['lastname']) || !empty($parts['firstname'])) {
-    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname']);
-    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['grade']);
-    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['grade'] . $parts['section']);
-    $candidates[] = normalizeName($parts['lastname'] . $parts['firstname'] . $parts['section']);
-  }
-
-  $candidates[] = normalizeName(pathinfo($file, PATHINFO_FILENAME));
-  $candidates[] = normalizeName(str_replace(['_', ' '], '', pathinfo($file, PATHINFO_FILENAME)));
-
-  if (!is_dir($studentPicDir)) {
-    return 'student_pics/placeholder.svg';
-  }
-
-  $extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
-  $images = [];
-  foreach (scandir($studentPicDir) as $entry) {
-    if ($entry === '.' || $entry === '..') continue;
-    $path = $studentPicDir . '/' . $entry;
-    if (!is_file($path)) continue;
-    $ext = strtolower(pathinfo($entry, PATHINFO_EXTENSION));
-    if (!in_array($ext, $extensions, true)) continue;
-    $images[] = $entry;
-  }
-
-  foreach ($images as $image) {
-    $imageBase = normalizeName(pathinfo($image, PATHINFO_FILENAME));
-    foreach ($candidates as $candidate) {
-      if ($candidate !== '' && ($imageBase === $candidate || strpos($imageBase, $candidate) !== false || strpos($candidate, $imageBase) !== false)) {
-        return 'student_pics/' . rawurlencode($image);
-      }
-    }
-  }
-
   return 'student_pics/placeholder.svg';
 }
 
@@ -215,10 +165,10 @@ $profileCards = $peopleProfiles;
         <div class="empty">No student submissions found in <code>student_works/</code>.</div>
       <?php else: ?>
         <div class="gallery">
-          <?php foreach ($files as $f): ?>
+          <?php foreach ($files as $index => $f): ?>
             <?php
               $url = 'student_works/' . rawurlencode($f);
-              $parts = parseFilename($f);
+              $parts = parseFilename($f, $index + 1);
               $thumb = findThumbnail(__DIR__ . '/student_pics', $f);
             ?>
             <a class="card" href="<?= $url ?>" target="_blank" rel="noopener noreferrer">
@@ -231,15 +181,7 @@ $profileCards = $peopleProfiles;
               </div>
               <div class="card-body">
                 <h3><?= $parts['displayName'] ?></h3>
-                <p class="grade">
-                  <?php if ($parts['grade']): ?>
-                    Grade <?= htmlspecialchars($parts['grade']) ?>
-                    <?php if ($parts['section']): ?> — <?= htmlspecialchars($parts['section']) ?><?php endif; ?>
-                  <?php else: ?>
-                    <?= htmlspecialchars($parts['section']) ?>
-                  <?php endif; ?>
-                </p>
-                <p class="filename"><?= htmlspecialchars($f) ?></p>
+                <p class="grade">Student Submission</p>
               </div>
             </a>
           <?php endforeach; ?>
