@@ -167,7 +167,7 @@ $profileCards = $peopleProfiles;
         <div class="gallery">
           <?php foreach ($files as $index => $f): ?>
             <?php
-              $url = 'student_works/' . rawurlencode($f);
+              $url = 'student-work.php?id=' . ($index + 1);
               $parts = parseFilename($f, $index + 1);
               $thumb = findThumbnail(__DIR__ . '/student_pics', $f);
             ?>
